@@ -1,0 +1,10 @@
+parameters:
+
+    paths:
+        - src
+
+    level: 6
+
+    ignoreErrors:
+        # Because DatabaseNotification has no type hints and we can't edit it, we have to ignore this
+        - '#Access to an undefined property Illuminate\\Notifications\\DatabaseNotification::\$.*#'

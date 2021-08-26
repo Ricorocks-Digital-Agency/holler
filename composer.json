@@ -1,0 +1,52 @@
+{
+    "name": "ricorocks-digital-agency/holler",
+    "description": "A notification package for the TALL stack",
+    "type": "package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "RicorocksDigitalAgency\\Holler\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "RicorocksDigitalAgency\\Holler\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Luke Downing",
+            "email": "lukeraymonddowning@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "pestphp/pest": "^1.16",
+        "pestphp/pest-plugin-parallel": "^0.2.1",
+        "phpstan/phpstan": "^0.12.96",
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "ricorocks-digital-agency/ricorocks-coding-standard": "^1.1",
+        "squizlabs/php_codesniffer": "^3.6",
+        "illuminate/notifications": "^8.56"
+    },
+    "require": {
+        "illuminate/support": "^8.0",
+        "livewire/livewire": "^2.0",
+        "spatie/enum": "^3.9"
+    },
+    "scripts": {
+        "lint": "vendor/bin/php-cs-fixer fix",
+        "test:lint": "vendor/bin/php-cs-fixer fix --dry-run",
+        "test:sniff": "vendor/bin/phpcs --standard=./vendor/ricorocks-digital-agency/ricorocks-coding-standard/RicorocksStandard ./src",
+        "test:types": "vendor/bin/phpstan analyse",
+        "test:unit": "vendor/bin/pest --parallel",
+        "test": [
+            "@test:lint",
+            "\n",
+            "@test:sniff",
+            "\n",
+            "@test:types",
+            "\n",
+            "@test:unit"
+        ]
+    }
+}
